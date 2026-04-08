@@ -1,5 +1,3 @@
-// When the browser action is clicked, `addToClipboard()` will use an offscreen
-// document to write the value of `textToCopy` to the system clipboard.
 chrome.action.onClicked.addListener(async () => {
   const startTime = Date.now();
   console.log('Started at:', new Date(startTime).toISOString());
@@ -18,8 +16,7 @@ chrome.action.onClicked.addListener(async () => {
   }
 
   // Get updated tab information after all refreshes.
-  // Use explicit windowId since the service worker's "currentWindow" context
-  // can be lost after async operations.
+  // Use explicit windowId since the service worker's "currentWindow" context can be lost after async operations.
   const updatedTabs = await chrome.tabs.query({ windowId: tabs[0].windowId });
 
   // Create Markdown list.

@@ -1,5 +1,5 @@
-Tabs to Markdown extensions
-===========================
+Tabs to Markdown extension
+==========================
 
 This extension reloads the tabs in the current window and then copies their titles and URLs, as a bullet-point Markdown list, to the clipboard from where they can be pasted into whatever Markdown document you want.
 
@@ -13,12 +13,12 @@ Clone this repository and then load it as an unpacked extension as described [he
 Run
 ---
 
-Click the extensions jigsaw piece icon (right of the address bar) and find and click the "Tabs to Markdown V2" extension. Only once all the tabs have reloaded will any Markdown be copied to clipboard.
+Click the extensions jigsaw piece icon (right of the address bar) and find and click the "Tabs to Markdown V2" extension. Only once all the tabs have reloaded will the Markdown be copied to clipboard.
 
 Development
 -----------
 
-If you're using an IDE, like Jetbrains [WebStorm](https://www.jetbrains.com/webstorm/), you'll need to install additional type information so that WebStorm knows about the `chrome` object.
+If you're using an IDE, like JetBrains [WebStorm](https://www.jetbrains.com/webstorm/), you'll need to install additional type information so that WebStorm knows about the `chrome` object.
 
 To do this:
 
