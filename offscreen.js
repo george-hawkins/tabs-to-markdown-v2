@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener(handleMessages);
 // This function performs basic filtering and error checking on messages before
 // dispatching the
 // message to a more specific message handler.
-async function handleMessages(message) {
+function handleMessages(message) {
   // Return early if this message isn't meant for the offscreen document.
   if (message.target !== 'offscreen-doc') {
     return;
@@ -38,7 +38,7 @@ const textEl = document.querySelector('#text');
 // At the time this demo was created (Jan 2023) the `navigator.clipboard` API
 // requires that the window is focused, but offscreen documents cannot be
 // focused. As such, we have to fall back to `document.execCommand()`.
-async function handleClipboardWrite(data) {
+function handleClipboardWrite(data) {
   try {
     // Error if we received the wrong kind of data.
     if (typeof data !== 'string') {
@@ -52,6 +52,7 @@ async function handleClipboardWrite(data) {
     // and to select that content in the page before calling `execCommand()`.
     textEl.value = data;
     textEl.select();
+    // noinspection JSDeprecatedSymbols
     document.execCommand('copy');
   } finally {
     // Job's done! Close the offscreen document.

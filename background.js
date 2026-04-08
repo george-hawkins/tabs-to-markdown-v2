@@ -9,6 +9,7 @@ chrome.action.onClicked.addListener(async () => {
 // Service workers cannot directly interact with the system clipboard.
 // To work around this, create an offscreen document and pass it the data we want to write to the clipboard.
 async function addToClipboard(value) {
+  // noinspection JSCheckFunctionSignatures
   await chrome.offscreen.createDocument({
     url: 'offscreen.html',
     reasons: [chrome.offscreen.Reason.CLIPBOARD],
@@ -16,7 +17,7 @@ async function addToClipboard(value) {
   });
 
   // Now that we have an offscreen document, we can dispatch the message.
-  chrome.runtime.sendMessage({
+  await chrome.runtime.sendMessage({
     type: 'copy-data-to-clipboard',
     target: 'offscreen-doc',
     data: value
