@@ -15,8 +15,22 @@ Run
 
 Click the extensions jigsaw piece icon (right of the address bar) and find and click the "Tabs to Markdown V2" extension. Only once all the tabs have reloaded will the Markdown be copied to clipboard.
 
+Console
+-------
+
+The extension's service worker has its own console. So to see its console output (including the Markdown that should be copied to the clipboard), go to `chrome://extensions/`, find the extension there, and you should see something like this:
+
+> ID: nobheinomjmcomljdgfofmpnhiglalog  
+> Inspect views [service worker](https://developer.chrome.com/docs/workbox/service-worker-overview) <!-- You have to link to something for the underline link look. -->
+
+Click the _service worker_ link, and it'll open a _Developer Tools_ window for the extension's service worker.
+
+Aside: Chrome deliberately disables links to `chrome://...` URLs so e.g. I can't make `chrome://extensions/` above into a link.
+
 Development
 -----------
+
+If you make changes, remember to go to `chrome://extensions/`, find the extension and click its reload icon (beside the enable/disable toggle).
 
 If you're using an IDE, like JetBrains [WebStorm](https://www.jetbrains.com/webstorm/), you'll need to install additional type information so that WebStorm knows about the `chrome` object.
 
